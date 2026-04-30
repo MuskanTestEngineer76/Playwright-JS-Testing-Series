@@ -1,0 +1,49 @@
+🎭 Playwright Codegen – Simple Notes
+📌 What is Codegen?
+
+Codegen in Playwright is a feature that records your actions in the browser and converts them into automation code.
+
+👉 It helps beginners quickly generate test scripts without writing everything manually.
+
+🚀 How to Start Codegen
+▶️ Basic Command
+npx playwright codegen
+
+👉 This will:
+
+Open a browser
+Start recording your actions
+Generate code in real-time
+🌐 Open Specific Website
+npx playwright codegen https://example.com
+🎯 Supported Browsers
+npx playwright codegen --browser=chromium
+npx playwright codegen --browser=firefox
+npx playwright codegen --browser=webkit
+🧠 How It Works
+Run command
+Browser opens
+Perform actions (click, type, navigate)
+Code is generated automatically
+
+👉 Example:
+
+await page.goto('https://example.com');
+await page.click('text=Login');
+await page.fill('#username', 'user1');
+⚙️ Useful Options
+📍 Save Script to File
+npx playwright codegen -o test.spec.js
+🌍 Set Viewport Size
+npx playwright codegen --viewport-size=1280,720
+🔐 Emulate Logged-in State
+npx playwright codegen --storage-state=state.json
+🎥 Record Video (during test run)
+npx playwright test --video=on
+💡 Best Practices
+
+✔ Use Codegen only for initial script creation
+✔ Refactor generated code (make it clean & reusable)
+✔ Replace weak locators with strong ones (getByRole, getByText)
+✔ Add assertions manually
+✔ Follow Page Object Model (POM)
