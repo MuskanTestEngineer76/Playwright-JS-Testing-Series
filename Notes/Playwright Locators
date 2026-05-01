@@ -1,0 +1,22 @@
+📌 Playwright Locators List (with Description)
+page.getByRole()
+➤ Finds elements using ARIA roles (like button, textbox, link) + accessible name
+➤ ✅ Most recommended & reliable
+page.getByText()
+➤ Locates elements based on visible text on the page
+➤ ✅ Useful for buttons, links, static text
+page.getByLabel()
+➤ Finds form fields using associated label text
+➤ ✅ Best for input fields (email, password, etc.)
+page.getByPlaceholder()
+➤ Targets input fields using placeholder text
+➤ ✅ Useful when label is not available
+page.getByAltText()
+➤ Locates images using alt attribute text
+➤ ✅ Used for image validation/testing
+page.getByTitle()
+➤ Finds elements using the title attribute
+➤ ✅ Helpful for tooltips or extra info elements
+page.getByTestId()
+➤ Uses custom attribute like data-testid
+➤ ✅ Highly stable for automation (preferred in real projects)
