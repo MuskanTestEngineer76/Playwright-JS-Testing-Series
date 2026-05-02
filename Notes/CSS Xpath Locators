@@ -1,0 +1,74 @@
+==============================
+📌 CSS LOCATOR (Simple)
+==============================
+
+Definition:
+CSS Locator is used to find elements using HTML attributes like id, class, tag, and other properties.
+
+- Uses: id, class, tag, attributes
+- Fast and easy to write
+
+Examples:
+#email                  → by id
+.login-btn              → by class
+input[type="text"]      → by attribute
+
+Best Use:
+✔ When id/class is stable
+
+
+==============================
+📌 XPATH LOCATOR (Simple)
+==============================
+
+Definition:
+XPath Locator is used to find elements using HTML structure and attributes. It can navigate forward and backward in the DOM.
+
+- Uses: HTML structure + attributes
+- More powerful but slightly complex
+
+Examples:
+//input[@id="email"]
+//button[text()="Login"]
+
+Best Use:
+✔ When CSS is not working
+✔ When need parent/child navigation
+
+
+==============================
+⚖️ CSS vs XPATH
+==============================
+
+CSS   → Fast, simple ✅
+XPath → Powerful, flexible ✅
+
+❌ Avoid long/absolute XPath
+
+
+==============================
+🧰 SELECTORSHUB TOOL
+==============================
+
+Definition:
+SelectorsHub is a browser extension that helps to generate and verify XPath and CSS selectors easily.
+
+Tool: SelectorsHub (Chrome Extension)
+
+- Helps to find XPath & CSS easily
+- Works with browser DevTools (F12)
+
+Features:
+✔ Auto-generate XPath
+✔ Shows unique selector
+✔ Supports Playwright & Selenium
+
+
+==============================
+🏆 FINAL TIP
+==============================
+
+Priority:
+1. getByRole()  → Best
+2. CSS          → Good
+3. XPath        → Use only when needed
