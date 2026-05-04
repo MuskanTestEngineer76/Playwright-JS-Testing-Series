@@ -1,0 +1,74 @@
+==============================
+📌 FILTERING LOCATORS (Playwright)
+==============================
+
+Definition:
+Filtering locators means narrowing down elements from a group 
+based on text, child elements, or conditions.
+
+Used when:
+✔ Multiple elements match same locator
+✔ Need to select specific element from list
+
+------------------------------
+🔹 1. filter({ hasText })
+------------------------------
+
+- Finds element containing specific text
+
+Example:
+await page.locator('.product')
+  .filter({ hasText: 'iPhone' })
+  .click();
+
+✔ Useful for lists, cards, tables
+
+
+------------------------------
+🔹 2. filter({ has })
+------------------------------
+
+- Finds element that contains another element inside it
+
+Example:
+await page.locator('.product')
+  .filter({ has: page.locator('button:has-text("Buy")') })
+  .click();
+
+✔ Useful for complex UI (parent-child relation)
+
+
+------------------------------
+🔹 3. Combining filters
+------------------------------
+
+Example:
+await page.locator('.product')
+  .filter({ hasText: 'iPhone' })
+  .filter({ has: page.locator('button') })
+  .click();
+
+✔ More precise selection
+
+
+------------------------------
+🔹 4. nth(), first(), last()
+------------------------------
+
+- Select element by index
+
+Examples:
+locator.nth(0)   → first element
+locator.first()  → first element
+locator.last()   → last element
+
+✔ Useful when order matters
+
+
+==============================
+🏆 FINAL TIP
+==============================
+
+✔ Use filtering when multiple elements found
+✔ Avoid complex XPath, use filter instead
+✔ Makes test stable and readable
