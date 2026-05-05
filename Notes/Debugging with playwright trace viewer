@@ -1,0 +1,70 @@
+ ==============================
+📌 DEBUGGING WITH TRACE VIEWER (Playwright)
+==============================
+
+Definition:
+Trace Viewer is a Playwright tool used to record and replay test execution.
+It helps you see what happened step-by-step when a test fails.
+
+------------------------------
+🔹 Why use Trace Viewer?
+------------------------------
+
+✔ See each action (click, fill, navigation)
+✔ View screenshots at every step
+✔ Check errors and logs
+✔ Debug failed tests easily
+
+------------------------------
+🔹 Enable Trace in Playwright
+------------------------------
+
+In playwright.config.js:
+
+use: {
+  trace: 'on',          // always record
+  // OR
+  trace: 'retain-on-failure'   // only on failure (recommended)
+}
+
+------------------------------
+🔹 Run Test
+------------------------------
+
+npx playwright test
+
+------------------------------
+🔹 Open Trace Viewer
+------------------------------
+
+npx playwright show-trace trace.zip
+
+✔ trace.zip is generated after test run
+
+------------------------------
+🔹 What you see in Trace Viewer
+------------------------------
+
+- Timeline → step-by-step actions
+- Actions → click, fill, etc.
+- DOM snapshot → UI at that moment
+- Console logs → errors, messages
+- Network → API calls
+
+------------------------------
+🔹 Real Example Flow
+------------------------------
+
+1. Test fails ❌
+2. Open trace.zip
+3. Check step where failure happened
+4. See screenshot + locator issue
+5. Fix test
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Use 'retain-on-failure' to save space
+✔ Always check screenshots + logs
+✔ Best tool for debugging in Playwright
