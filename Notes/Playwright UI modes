@@ -1,0 +1,60 @@
+==============================
+📌 PLAYWRIGHT UI MODE
+==============================
+
+Definition:
+UI Mode is a visual interface in Playwright that lets you run, debug,
+and watch your tests step-by-step in a browser-like UI.
+
+------------------------------
+🔹 Why use UI Mode?
+------------------------------
+
+✔ Run tests visually
+✔ Debug step-by-step
+✔ See actions (click, fill, navigation)
+✔ Easy for beginners
+
+------------------------------
+🔹 How to Open UI Mode
+------------------------------
+
+Command:
+npx playwright test --ui
+
+------------------------------
+🔹 Features of UI Mode
+------------------------------
+
+✔ Test Explorer → list of all tests
+✔ Run button → execute selected test
+✔ Step execution → run step-by-step
+✔ Live browser view → see actions happening
+✔ Error panel → shows failures
+✔ Trace integration → open trace directly
+
+------------------------------
+🔹 How to Use
+------------------------------
+
+1. Run command → npx playwright test --ui
+2. Select test from sidebar
+3. Click ▶ Run
+4. Watch execution in browser
+5. Check errors if test fails
+
+------------------------------
+🔹 When to Use
+------------------------------
+
+✔ While writing new tests
+✔ While debugging failures
+✔ For learning Playwright
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Best for beginners
+✔ Combine with Trace Viewer for deep debugging
+✔ Faster than running tests manually again & again
