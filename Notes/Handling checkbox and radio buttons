@@ -1,0 +1,74 @@
+==============================
+📌 HANDLING CHECKBOXES & RADIO BUTTONS (Playwright)
+==============================
+
+Definition:
+Checkboxes allow multiple selections.
+Radio buttons allow only one selection from a group.
+
+------------------------------
+🔹 Handling Checkbox
+------------------------------
+
+✔ Select checkbox
+
+Example:
+await page.locator('#remember').check();
+
+✔ Unselect checkbox
+
+Example:
+await page.locator('#remember').uncheck();
+
+✔ Verify checkbox selected
+
+Example:
+await expect(page.locator('#remember')).toBeChecked();
+
+✔ Verify checkbox not selected
+
+Example:
+await expect(page.locator('#remember')).not.toBeChecked();
+
+------------------------------
+🔹 Handling Radio Button
+------------------------------
+
+✔ Select radio button
+
+Example:
+await page.locator('#male').check();
+
+✔ Verify radio button selected
+
+Example:
+await expect(page.locator('#male')).toBeChecked();
+
+------------------------------
+🔹 Alternative Method
+------------------------------
+
+✔ Using click()
+
+Example:
+await page.locator('#remember').click();
+
+⚠ Recommended:
+Use check() for checkbox/radio button instead of click()
+
+------------------------------
+🔹 Important Methods
+------------------------------
+
+check()       → select checkbox/radio
+uncheck()     → unselect checkbox
+isChecked()   → returns true/false
+toBeChecked() → assertion validation
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Prefer check() over click()
+✔ Use assertions for validation
+✔ Useful in forms and settings pages
