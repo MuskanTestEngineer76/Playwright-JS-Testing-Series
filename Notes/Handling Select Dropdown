@@ -1,0 +1,73 @@
+==============================
+📌 SELECTING DROPDOWN OPTIONS (Playwright)
+==============================
+
+Definition:
+Dropdown is used to select one or more options from a list.
+
+Playwright provides built-in methods to handle dropdowns easily.
+
+------------------------------
+🔹 Select by Visible Text
+------------------------------
+
+Example:
+await page.locator('#country')
+  .selectOption({ label: 'India' });
+
+✔ Selects option using visible text
+
+------------------------------
+🔹 Select by Value
+------------------------------
+
+Example:
+await page.locator('#country')
+  .selectOption('india');
+
+✔ Selects option using value attribute
+
+------------------------------
+🔹 Select by Index
+------------------------------
+
+Example:
+await page.locator('#country')
+  .selectOption({ index: 1 });
+
+✔ Selects option using position/index
+
+------------------------------
+🔹 Select Multiple Options
+------------------------------
+
+Example:
+await page.locator('#colors')
+  .selectOption(['red', 'blue']);
+
+✔ Used for multi-select dropdown
+
+------------------------------
+🔹 Verify Selected Option
+------------------------------
+
+Example:
+await expect(page.locator('#country'))
+  .toHaveValue('india');
+
+✔ Validates selected value
+
+------------------------------
+🔹 Important Methods
+------------------------------
+
+selectOption() → select dropdown option
+toHaveValue()  → validate selected value
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Use selectOption() for normal dropdowns
+✔ Prefer value or label for stable tests
+✔ Use assertions for validation
