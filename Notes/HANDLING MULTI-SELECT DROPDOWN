@@ -1,0 +1,78 @@
+==============================
+📌 HANDLING MULTI-SELECT DROPDOWN (Playwright)
+==============================
+
+Definition:
+A multi-select dropdown allows users to select multiple values
+from the dropdown list.
+
+Playwright uses selectOption() method to handle multi-select dropdowns.
+
+------------------------------
+🔹 Select Multiple Values
+------------------------------
+
+Example:
+await page.locator('#colors')
+  .selectOption(['red', 'blue', 'green']);
+
+✔ Selects multiple options together
+
+------------------------------
+🔹 Select Using Label
+------------------------------
+
+Example:
+await page.locator('#colors')
+  .selectOption([
+    { label: 'Red' },
+    { label: 'Blue' }
+  ]);
+
+✔ Selects using visible text
+
+------------------------------
+🔹 Select Using Value
+------------------------------
+
+Example:
+await page.locator('#colors')
+  .selectOption([
+    'red',
+    'blue'
+  ]);
+
+✔ Selects using value attribute
+
+------------------------------
+🔹 Verify Selected Values
+------------------------------
+
+Example:
+await expect(page.locator('#colors'))
+  .toHaveValues(['red', 'blue']);
+
+✔ Validates selected options
+
+------------------------------
+🔹 Important Methods
+------------------------------
+
+selectOption() → select values
+toHaveValues() → validate selected values
+
+------------------------------
+🔹 Common Use Cases
+------------------------------
+
+✔ Country selection
+✔ Skills selection
+✔ Tags/categories selection
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Use array [] for multiple selections
+✔ Prefer value or label for stable tests
+✔ Always validate selected values
