@@ -1,0 +1,82 @@
+==============================
+📌 HANDLING AUTO-COMPLETE & AUTO-SUGGESTIONS (Playwright)
+==============================
+
+Definition:
+Auto-complete or auto-suggestion fields display matching suggestions
+while the user types in an input box.
+
+Playwright handles them using fill(), type(), and click() methods.
+
+------------------------------
+🔹 Steps to Handle Auto Suggestions
+------------------------------
+
+1. Enter text in input field
+2. Wait for suggestions to appear
+3. Select required suggestion
+
+------------------------------
+🔹 Basic Example
+------------------------------
+
+Example:
+await page.locator('#search').fill('Ind');
+
+await page.locator('text=India').click();
+
+✔ Types text and selects suggestion
+
+------------------------------
+🔹 Handling Multiple Suggestions
+------------------------------
+
+Example:
+await page.locator('#search').fill('Ind');
+
+const options = page.locator('.suggestion-item');
+
+await options.filter({ hasText: 'India' }).click();
+
+✔ Selects matching option from list
+
+------------------------------
+🔹 Using Keyboard Actions
+------------------------------
+
+Example:
+await page.locator('#search').fill('Ind');
+
+await page.keyboard.press('ArrowDown');
+await page.keyboard.press('Enter');
+
+✔ Useful for keyboard navigation
+
+------------------------------
+🔹 Wait for Suggestions
+------------------------------
+
+Example:
+await page.locator('.suggestion-item')
+  .first()
+  .waitFor();
+
+✔ Ensures suggestions are visible before selection
+
+------------------------------
+🔹 Common Methods
+------------------------------
+
+fill()         → enter text
+click()        → select suggestion
+filter()       → find matching option
+keyboard.press() → keyboard actions
+waitFor()      → wait for element
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Wait for suggestions before clicking
+✔ Use filter({ hasText }) for dynamic lists
+✔ Keyboard actions useful for auto-complete fields
