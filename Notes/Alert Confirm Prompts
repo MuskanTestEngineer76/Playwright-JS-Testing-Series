@@ -1,0 +1,95 @@
+// ==============================
+// 📌 MANAGING ALERTS, CONFIRMS & PROMPTS (Playwright)
+// ==============================
+
+// Definition:
+// JavaScript dialogs are popup messages shown by the browser.
+
+// Types:
+// ✔ Alert
+// ✔ Confirm
+// ✔ Prompt
+
+// Playwright handles them using page.on('dialog').
+
+// ------------------------------
+// 🔹 Handling Alert Box
+// ------------------------------
+
+// Definition:
+// Alert shows message with only OK button.
+
+// Example:
+// page.on('dialog', async dialog => {
+//   console.log(dialog.message());
+//   await dialog.accept();
+// });
+
+// await page.locator('#alertBtn').click();
+
+// ✔ accept() clicks OK button
+
+// ------------------------------
+// 🔹 Handling Confirm Box
+// ------------------------------
+
+// Definition:
+// Confirm box has OK and Cancel buttons.
+
+// ✔ Accept Confirm
+
+// Example:
+// page.on('dialog', async dialog => {
+//   await dialog.accept();
+// });
+
+// ✔ Dismiss Confirm
+
+// Example:
+// page.on('dialog', async dialog => {
+//   await dialog.dismiss();
+// });
+
+// dismiss() → clicks Cancel button
+
+// ------------------------------
+// 🔹 Handling Prompt Box
+// ------------------------------
+
+// Definition:
+// Prompt box accepts user input.
+
+// Example:
+// page.on('dialog', async dialog => {
+//   await dialog.accept('Muskan');
+// });
+
+// await page.locator('#promptBtn').click();
+
+// ✔ Sends input value in prompt
+
+// ------------------------------
+// 🔹 Useful Dialog Methods
+// ------------------------------
+
+// dialog.message() → gets popup message
+// dialog.type()    → gets dialog type
+// accept()         → clicks OK
+// dismiss()        → clicks Cancel
+
+// ------------------------------
+// 🔹 Common Dialog Types
+// ------------------------------
+
+// alert   → only OK button
+// confirm → OK + Cancel
+// prompt  → input field + buttons
+
+// ------------------------------
+// 🏆 FINAL TIP
+// ------------------------------
+
+// ✔ Handle dialog before triggering popup
+// ✔ Use accept() for OK
+// ✔ Use dismiss() for Cancel
+// ✔ Use accept('text') for prompt input
