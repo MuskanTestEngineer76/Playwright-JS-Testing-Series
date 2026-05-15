@@ -1,0 +1,84 @@
+==============================
+📌 UPLOADING FILES (Playwright)
+==============================
+
+Definition:
+File upload is used to upload documents, images, PDFs, etc.
+in a web application.
+
+Playwright handles file upload using setInputFiles() method.
+
+------------------------------
+🔹 Upload Single File
+------------------------------
+
+Example:
+await page.locator('#upload')
+  .setInputFiles('tests/data/file.pdf');
+
+✔ Uploads one file
+
+------------------------------
+🔹 Upload Multiple Files
+------------------------------
+
+Example:
+await page.locator('#upload')
+  .setInputFiles([
+    'tests/data/file1.pdf',
+    'tests/data/file2.pdf'
+  ]);
+
+✔ Uploads multiple files together
+
+------------------------------
+🔹 Remove Uploaded File
+------------------------------
+
+Example:
+await page.locator('#upload')
+  .setInputFiles([]);
+
+✔ Clears selected files
+
+------------------------------
+🔹 Upload Using File Chooser
+------------------------------
+
+Example:
+const fileChooserPromise =
+  page.waitForEvent('filechooser');
+
+await page.locator('#uploadBtn').click();
+
+const fileChooser =
+  await fileChooserPromise;
+
+await fileChooser.setFiles('tests/data/file.pdf');
+
+✔ Used when upload input is hidden
+
+------------------------------
+🔹 Important Methods
+------------------------------
+
+setInputFiles() → upload files
+setFiles()      → upload using file chooser
+waitForEvent()  → wait for file chooser popup
+
+------------------------------
+🔹 Common File Types
+------------------------------
+
+✔ PDF
+✔ PNG/JPG
+✔ DOCX
+✔ XLSX
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Use relative file path
+✔ Use array [] for multiple files
+✔ Use file chooser for hidden upload inputs
