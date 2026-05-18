@@ -1,0 +1,80 @@
+// ==============================
+// 📌 HANDLING BASIC AUTHENTICATION (Playwright)
+// ==============================
+
+// Definition:
+// Basic Authentication is a security feature where
+// the browser asks for username and password
+// before accessing the website.
+
+// Playwright handles basic auth using httpCredentials.
+
+// ------------------------------
+// 🔹 Basic Authentication Setup
+// ------------------------------
+
+// Example:
+// const browser = await chromium.launch();
+
+// const context = await browser.newContext({
+//   httpCredentials: {
+//     username: 'admin',
+//     password: 'admin'
+//   }
+// });
+
+// const page = await context.newPage();
+
+// await page.goto('https://example.com');
+
+// ✔ Automatically passes username & password
+
+// ------------------------------
+// 🔹 Using Playwright Test
+// ------------------------------
+
+// Example:
+// use: {
+//   httpCredentials: {
+//     username: 'admin',
+//     password: 'admin'
+//   }
+// }
+
+// ✔ Add inside playwright.config.js
+
+// ------------------------------
+// 🔹 Alternative Method (URL Based)
+// ------------------------------
+
+// Example:
+// await page.goto(
+//   'https://admin:admin@example.com'
+// );
+
+// ⚠ Not recommended for real projects
+
+// ------------------------------
+// 🔹 Important Keywords
+// ------------------------------
+
+// httpCredentials → authentication object
+// username        → login username
+// password        → login password
+
+// ------------------------------
+// 🔹 Common Use Cases
+// ------------------------------
+
+// ✔ Internal websites
+// ✔ Admin panels
+// ✔ Protected environments
+// ✔ Staging applications
+
+// ------------------------------
+// 🏆 FINAL TIP
+// ------------------------------
+
+// ✔ Prefer httpCredentials method
+// ✔ Avoid hardcoding credentials in real projects
+// ✔ Store credentials in environment variables
