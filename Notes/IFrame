@@ -1,0 +1,85 @@
+==============================
+📌 WORKING WITH IFRAMES (Playwright)
+==============================
+
+Definition:
+An iframe is a webpage embedded inside another webpage.
+
+Playwright handles iframes using frameLocator().
+
+------------------------------
+🔹 Why Use frameLocator()?
+------------------------------
+
+✔ Access elements inside iframe
+✔ Perform actions like click, fill, select
+✔ Easy and recommended method
+
+------------------------------
+🔹 Basic Syntax
+------------------------------
+
+Example:
+const frame = page.frameLocator('#frameId');
+
+✔ Switches to iframe
+
+------------------------------
+🔹 Click Element Inside iframe
+------------------------------
+
+Example:
+await page.frameLocator('#frameId')
+  .locator('#submit')
+  .click();
+
+✔ Clicks element inside iframe
+
+------------------------------
+🔹 Fill Input Inside iframe
+------------------------------
+
+Example:
+await page.frameLocator('#frameId')
+  .locator('#email')
+  .fill('test@mail.com');
+
+✔ Fills textbox inside iframe
+
+------------------------------
+🔹 Handle Nested iframe
+------------------------------
+
+Example:
+await page.frameLocator('#outerFrame')
+  .frameLocator('#innerFrame')
+  .locator('#btn')
+  .click();
+
+✔ Handles iframe inside another iframe
+
+------------------------------
+🔹 Important Methods
+------------------------------
+
+frameLocator() → access iframe
+locator()      → find element inside iframe
+click()        → click element
+fill()         → enter text
+
+------------------------------
+🔹 Common Use Cases
+------------------------------
+
+✔ Payment gateways
+✔ Ads sections
+✔ Embedded forms
+✔ External content
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Use frameLocator() instead of switching frames manually
+✔ Inspect iframe before locating elements
+✔ Handle nested iframes carefully
