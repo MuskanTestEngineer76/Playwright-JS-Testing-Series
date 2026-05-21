@@ -1,0 +1,68 @@
+==============================
+📌 HANDLING NESTED IFRAMES (Playwright)
+==============================
+
+Definition:
+Nested iframe means an iframe present inside another iframe.
+
+Playwright handles nested iframes using multiple frameLocator() methods.
+
+------------------------------
+🔹 Why Handle Nested iframe?
+------------------------------
+
+✔ Access elements inside inner iframe
+✔ Used in complex web applications
+✔ Common in payment pages & embedded content
+
+------------------------------
+🔹 Basic Syntax
+------------------------------
+
+Example:
+await page
+  .frameLocator('#outerFrame')
+  .frameLocator('#innerFrame')
+  .locator('#submit')
+  .click();
+
+✔ Accesses inner iframe step-by-step
+
+------------------------------
+🔹 Fill Input Inside Nested iframe
+------------------------------
+
+Example:
+await page
+  .frameLocator('#outerFrame')
+  .frameLocator('#innerFrame')
+  .locator('#email')
+  .fill('test@mail.com');
+
+✔ Fills textbox inside nested iframe
+
+------------------------------
+🔹 Important Methods
+------------------------------
+
+frameLocator() → access iframe
+locator()      → find element
+click()        → click element
+fill()         → enter text
+
+------------------------------
+🔹 Common Use Cases
+------------------------------
+
+✔ Payment gateways
+✔ Embedded applications
+✔ Third-party widgets
+✔ Ads and forms
+
+------------------------------
+🏆 FINAL TIP
+------------------------------
+
+✔ Move iframe by iframe step-by-step
+✔ Inspect iframe structure carefully
+✔ Use frameLocator() for stable tests
