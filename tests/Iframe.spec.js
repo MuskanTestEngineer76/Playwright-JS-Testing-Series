@@ -1,9 +1,21 @@
-import {test, expect} from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
-test("Working with iframe", async ({page}) =>{
+test("Working with iframe", async ({ page }) => {
+
     await page.goto("https://the-internet.herokuapp.com/iframe");
-   const frameArea = await page.frameLocator('#mce_0_ifr').locator('#tinymce');
-   await frameArea.fill("Your content goes here.");
-//    await expect(frameArea).toHaveText("Your content goes here.");
-   await page.waitForTimeout(10000);
-})
+
+    const frameArea = page
+        .frameLocator('#mce_0_ifr')
+        .locator('#tinymce');
+
+    await frameArea.click();
+
+    await page.keyboard.press('Control+A');
+
+    await page.keyboard.press('Backspace');
+
+    await page.keyboard.type("Your content goes here.");
+
+    await expect(frameArea).toContainText("Your content goes here.");
+
+});
