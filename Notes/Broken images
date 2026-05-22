@@ -1,0 +1,80 @@
+// ==============================
+// 📌 FINDING BROKEN IMAGES (Playwright)
+// ==============================
+
+// Definition:
+// Broken images are images that fail to load on a webpage
+// because of invalid URL, missing file, or server issue.
+
+// Playwright can verify image status using image source
+// and HTTP response.
+
+// ------------------------------
+// 🔹 Steps to Find Broken Images
+// ------------------------------
+
+// 1. Locate all images
+// 2. Get image src attribute
+// 3. Send request to image URL
+// 4. Check response status
+
+// ------------------------------
+// 🔹 Example
+// ------------------------------
+
+// const images = await page.locator('img').all();
+
+// for (const image of images) {
+
+//   const imgURL =
+//     await image.getAttribute('src');
+
+//   const response =
+//     await page.goto(imgURL);
+
+//   console.log(
+//     `${imgURL} : ${response.status()}`
+//   );
+// }
+
+// ✔ Status 200 → image loaded successfully
+// ❌ Status 404 → broken image
+
+// ------------------------------
+// 🔹 Alternative Validation
+// ------------------------------
+
+// Example:
+// const isVisible =
+//   await page.locator('img').isVisible();
+
+// ✔ Checks image visibility
+
+// ⚠ Visible image does not always mean
+// image loaded correctly
+
+// ------------------------------
+// 🔹 Important Methods
+// ------------------------------
+
+// locator('img')   → finds images
+// getAttribute()   → gets src URL
+// status()         → gets response status
+// isVisible()      → checks visibility
+
+// ------------------------------
+// 🔹 Common Causes of Broken Images
+// ------------------------------
+
+// ✔ Invalid image path
+// ✔ Deleted image
+// ✔ Server issue
+// ✔ Wrong URL
+
+// ------------------------------
+// 🏆 FINAL TIP
+// ------------------------------
+
+// ✔ Validate image HTTP status
+// ✔ Use loops for multiple images
+// ✔ 200 = success, 404 = broken image
